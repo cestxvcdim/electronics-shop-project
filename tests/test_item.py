@@ -26,3 +26,12 @@ def test_name():
 
 def test_string_to_number():
     assert 89 == test_item.string_to_number('89.9992')
+
+
+def test_magic_str():
+    assert str(test_item) == test_item.name
+    assert str(test_item) == 'Test'
+
+
+def test_magic_repr():
+    assert repr(test_item) == f'Item(name=Test, price=9000, quantity=3)'
