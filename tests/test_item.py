@@ -7,13 +7,13 @@ test_item.pay_rate = 0.9
 
 
 def test_calculate_total_price():
-    assert test_item.price * test_item.quantity == test_item.calculate_total_price()
+    assert test_item._price * test_item.quantity == test_item.calculate_total_price()
 
 
 def test_apply_discount():
-    native_price = test_item.price * test_item.pay_rate
+    native_price = test_item._price * test_item.pay_rate
     test_item.apply_discount()
-    price = test_item.price
+    price = test_item._price
     assert native_price == price
 
 
@@ -29,9 +29,10 @@ def test_string_to_number():
 
 
 def test_magic_str():
+    test_item.name = 'Test'
     assert str(test_item) == test_item.name
     assert str(test_item) == 'Test'
 
 
 def test_magic_repr():
-    assert repr(test_item) == f'Item(name=Test, price=9000, quantity=3)'
+    assert repr(test_item) == f'Item(name=Test, price=8100.0, quantity=3)'
