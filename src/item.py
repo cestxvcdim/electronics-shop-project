@@ -15,9 +15,11 @@ class Item:
         self._price = price
         self._quantity = quantity
         self.all.append(self)
+        super().__init__()
 
     def __repr__(self) -> str:
-        return f'Item(name={self.name}, price={self._price}, quantity={self._quantity})'
+        info = f"(name={self.name}, price={self._price}, quantity={self._quantity})"
+        return self.__class__.__name__ + info
 
     def __str__(self) -> str:
         return self._name

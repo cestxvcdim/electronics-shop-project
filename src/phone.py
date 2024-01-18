@@ -9,7 +9,7 @@ class Phone(Item):
         self._sim_cards = sim_cards
 
     def __str__(self) -> str:
-        return self.name
+        return super().__str__()
 
     def __repr__(self) -> str:
         info = f"('{self.name}', {self._price}, {self._quantity}, {self._sim_cards})"
